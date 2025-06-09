@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="3.726" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Verify the Login Functionality" name="Successful Login with valid credentials" time="3.497">
+<failure/>
+<system-out><![CDATA[
+Given User entered the URL..................................................undefined
+When User enters the valid username  and valid password.....................skipped
+And User clicks on the Login button.........................................skipped
+]]></system-out>
+</testcase>
+</testsuite>
