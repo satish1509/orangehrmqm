@@ -114,7 +114,7 @@ public class AddCandidatePage {
     
 
     public void uploadResumeFile(String filePath) throws Exception {
-        TestUtility.clickElement(browseButton, "Browse Button");
+        TestUtility.clickElement(browseButton, "Browse Resume Button And Selected Resume");
         TestUtility.fileupload(filePath);
     }
 

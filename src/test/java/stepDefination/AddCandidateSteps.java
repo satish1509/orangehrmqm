@@ -45,17 +45,14 @@ public class AddCandidateSteps {
     @And("the user navigated to recruitment module")
     public void accessRecruitmentModule() {
         add.navigateToRecruitmentPage();
+    }
+
+  
+
+    @Given("I am on the Recruitment menu")
+    public void i_am_on_the_recruitment_menu() {
         System.out.println("Navigated to Recruitment module");
-    }
 
-    @Given("I am on the dashboard")
-    public void i_am_on_the_dashboard() {
-        System.out.println("User is on the OrangeHRM dashboard");
-    }
-
-    @When("I click on the Recruitment menu")
-    public void clickRecruitment() {
-        add.navigateToRecruitmentPage();
     }
 
     @And("I click on Add Candidate")
@@ -66,6 +63,10 @@ public class AddCandidateSteps {
     @And("I select job vacancy")
     public void selectJobVacancy() {
         add.selectVacancyAutomationQA();
+    }
+    @When("I enter email id address")
+    public void i_enter_email_id_address() {
+    	add.enterCandidateEmail();
     }
 
     @And("I click on Shortlist button")
@@ -93,13 +94,14 @@ public class AddCandidateSteps {
     @And("I enter mobile number")
     public void enterMobileNumber() {
         add.enterCandidateContactNumber();
+        add.selectAvailableDate();
     }
 
     @And("I upload resume")
     public void uploadResume() throws Exception {
         String filePath = config.readConfig().getProperty("StringfilePath");
         add.uploadResumeFile(filePath);
-        add.selectAvailableDate();
+      
     }
 
     @And("I click on Save")

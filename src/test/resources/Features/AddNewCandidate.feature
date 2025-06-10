@@ -6,11 +6,11 @@ Background:
   And the user navigated to recruitment module
    @Reg
   Scenario: Add a candidate in Recruitment
-    Given I am on the dashboard
-    When I click on the Recruitment menu
+    Given I am on the Recruitment menu
     And I click on Add Candidate
-    And I select job vacancy
     And I type name of candidate 
+    And I select job vacancy
+    And I enter email id address
     And I enter mobile number
     And I upload resume
     And I click on Save

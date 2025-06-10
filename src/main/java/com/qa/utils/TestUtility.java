@@ -135,28 +135,29 @@ public class TestUtility {
 
     // Upload file using Robot class
     public static void fileupload(String filepath) throws Exception {
-        Robot rb = new Robot();
-
         // Copy the file path to clipboard
         StringSelection str = new StringSelection(filepath);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
 
-        // Wait for the file dialog to open
-        Thread.sleep(1000); // Wait 1 second
+        // Give time for the clipboard to set and the file dialog to appear
+        Thread.sleep(2000); // Increased sleep for better reliability
 
-        // Paste the file path (Ctrl + V)
+        Robot rb = new Robot();
+        rb.setAutoDelay(100); // Small delay between key events
+
+        // Paste (Ctrl + V)
         rb.keyPress(KeyEvent.VK_CONTROL);
         rb.keyPress(KeyEvent.VK_V);
         rb.keyRelease(KeyEvent.VK_V);
         rb.keyRelease(KeyEvent.VK_CONTROL);
 
-        // Small delay after pasting
-        Thread.sleep(500);
+        Thread.sleep(500); // Wait after pasting
 
-        // Press Enter to confirm the selection
+        // Press Enter
         rb.keyPress(KeyEvent.VK_ENTER);
         rb.keyRelease(KeyEvent.VK_ENTER);
     }
+
 
 
     // Faker methods for random data entry
