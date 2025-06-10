@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Cucumber Test Suite">
+    <test name="Cucumber Test">
+        <parameter name="cucumber.features" value="src/test/resources/Features" />
+        <parameter name="cucumber.tags" value="@smoke" />
+        <parameter name="cucumber.glue" value="applicationHooks,stepDefination" />
+    <parameter name="cucumber.plugin" value="html:./Reports/myReports.html" />
+        <classes>
+            <class name="testRunner.Paralleltestrunner" />
+        </classes>
+    </test>
+</suite>
