@@ -8,7 +8,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
 	public static ThreadLocal<WebDriver> tdriver=
-			new ThreadLocal<>();
+			new ThreadLocal<>(); //
+	
+	   //threads 
+	   //threads -- flow of execution 
+	
+// tdriver== varaible  stpes defintioin 
+	
+	//synchronized 
 	public WebDriver init_driver(String driver)
 	{
 		if(driver.equals("chrome"))

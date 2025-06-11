@@ -16,4 +16,5 @@ Background:
     And I click on Save
     Then the candidate should be added successfully
     And I click on Shortlist button
-    And I click on Save button
+    And I click on Save
+    And I clcik on schedule interview button

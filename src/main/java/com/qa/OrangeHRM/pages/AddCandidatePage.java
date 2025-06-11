@@ -74,6 +74,8 @@ public class AddCandidatePage {
 
     @FindBy(xpath = "//*[text()=' Shortlist ']")
     private WebElement shortlistButton;
+    @FindBy(xpath = "//*[text()=' Schedule Interview ']")
+    private WebElement scheduleInterviewBtn;
 
     // ========== Action Methods ==========
 
@@ -145,6 +147,10 @@ public class AddCandidatePage {
 
     public void clickShortlist() {
         TestUtility.clickElement(shortlistButton, "Shortlist Button");
+    }
+    public void clickScheduleInterview() throws InterruptedException {
+    	Thread.sleep(3000);
+    	TestUtility.clickElement(scheduleInterviewBtn, "schedule Button");
     }
 
     public void verifyCandidateSubmissionSuccess() {

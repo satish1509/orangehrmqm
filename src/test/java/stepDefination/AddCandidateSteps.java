@@ -78,6 +78,11 @@ public class AddCandidateSteps {
     public void clickOnSaveButton() {
         add.clickSave();
     }
+    @And("I clcik on schedule interview button")
+    public void clickonscheduleinterviewbutton() throws InterruptedException {
+    	
+    	add.clickScheduleInterview();
+    }
 
     @And("I type name of candidate")
     public void i_type_name_of_candidate() {

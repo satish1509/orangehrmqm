@@ -8,8 +8,12 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 import java.util.UUID;
 
 import org.openqa.selenium.By;
@@ -166,10 +170,25 @@ public class TestUtility {
 
    
 
-    public static void enterRandomUsername(WebElement element) {
+    public static void enterRandomUsername(WebElement element) throws IOException {
         String username = faker.name().username();
         element.sendKeys(username);
         System.out.println("Entered Random Username: " + username);
+        String filePath = "./src/test/resources/Config/config.properties";
+
+        // Load existing properties first
+        Properties props = new Properties();
+        FileInputStream in = new FileInputStream(filePath);
+        props.load(in);
+        in.close();
+
+        // Update the username
+        props.setProperty("adminusername", username);
+
+        // Save the updated properties back to the file
+        FileOutputStream out = new FileOutputStream(filePath);
+        props.store(out,null);
+        out.close();
     }
 
     public static void enterRandomPassword(WebElement element) {

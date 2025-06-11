@@ -1,5 +1,7 @@
 package stepDefination;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 
 import com.qa.OrangeHRM.pages.AdminPage;
@@ -69,7 +71,7 @@ public class AdminModuleSteps {
     }
 
     @When("User enters username")
-    public void user_enters_username() {
+    public void user_enters_username() throws IOException {
         adminPage.enterUsername();
     }
 

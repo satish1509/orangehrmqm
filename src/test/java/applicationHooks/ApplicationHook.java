@@ -35,13 +35,13 @@ public class ApplicationHook {
     @Before(order = 1)
     public void getProperty() {
         configReader = new ConfigReader();
-        prop = configReader.readConfig();
+        prop = configReader.readConfig(); /// read 
     }
 
     @Before(order = 2)
     public void launchBrowser() {
-        String browser = prop.getProperty("browser");
-        driver = new DriverFactory().init_driver(browser);
+        String browser = prop.getProperty("browser"); // chrome
+        driver = new DriverFactory().init_driver(browser); //it will kaunc
         driver.get(prop.getProperty("url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }

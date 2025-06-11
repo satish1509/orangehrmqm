@@ -1,5 +1,7 @@
 package com.qa.OrangeHRM.pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -67,7 +69,7 @@ public class AdminPage extends TestUtility {
         clickElement(driver.findElement(statusEnabled), "Enabled Status");
     }
 
-    public void enterUsername() {
+    public void enterUsername() throws IOException {
         enterRandomUsername(driver.findElement(usernameInput));
     }
 
