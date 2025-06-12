@@ -3,9 +3,9 @@
 <suite name="Cucumber Test Suite">
     <test name="Cucumber Test">
         <parameter name="cucumber.features" value="src/test/resources/Features" />
-        <parameter name="cucumber.tags" value="@admin" />
+        <parameter name="cucumber.tags" value="@smoke" />
         <parameter name="cucumber.glue" value="applicationHooks,stepDefination" />
-    <parameter name="cucumber.plugin" value="html:./Reports/myReports.html" />
+        <parameter name="cucumber.plugin" value="html:./Reports/myReports.html" />
         <classes>
             <class name="testRunner.TestRunner" />
         </classes>
