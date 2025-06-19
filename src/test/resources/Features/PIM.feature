@@ -8,6 +8,7 @@ Feature: Add and Search Employee in PIM Module
 	  @smoke
 	  Scenario: Add a new employee in PIM module
 	    When I click on the Add button
+	    And I upload employee Image
 	    And I enter employee first name
 	    And I enter employee last name
 	    And I see employee ID number

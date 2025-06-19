@@ -1,0 +1,1 @@
+{"uuid":"0dde29c3-35e7-44cd-b241-fc5d1e610948","name":"Cucumber Test Suite","children":["06e05b58-fd16-4d39-a39e-e51209bb9d83"],"befores":[],"afters":[{"name":"generateAllureReport","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1749713359776,"stop":1749713359790}],"start":1749713318015,"stop":1749713359794}

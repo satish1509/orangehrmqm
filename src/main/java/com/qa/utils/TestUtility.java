@@ -83,7 +83,6 @@ public class TestUtility {
                 throw new RuntimeException(fieldName + " is not interactable");
             }
 
-            element.clear();
             element.sendKeys(value);
 
             System.out.println("Typed into UI: " + element.getAttribute("value"));
@@ -162,6 +161,15 @@ public class TestUtility {
         rb.keyRelease(KeyEvent.VK_ENTER);
     }
 
+    public static void clearText(WebElement element, String fieldName) {
+        try {
+            element.clear();
+            System.out.println("Cleared text in field: " + fieldName);
+        } catch (Exception e) {
+            System.out.println("Unable to clear text in field: " + fieldName);
+            e.printStackTrace();
+        }
+    }
 
 
     // Faker methods for random data entry
@@ -331,10 +339,10 @@ public class TestUtility {
     }
 
     // Get text from WebElement with logging
-    public static String getText(WebElement element, String fieldName) {
+    public static void getText(WebElement element, String fieldName) {
         String value = element.getText();
         System.out.println("Fetched value from " + fieldName + ": " + value);
-        return value;
+        System.out.println(value);
     }
 
     public static void printIfDisplayed(WebElement element, String successMessage) {

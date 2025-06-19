@@ -15,7 +15,7 @@ public class PIMsteps extends TestUtility {
     private WebDriver driver;
     private LoginPage loginPage;
     private PIMPage pimPage;
-    
+    private ConfigReader cr=new ConfigReader();    
     public PIMsteps() {
         this.driver = DriverFactory.getDriver(); 
         this.loginPage = new LoginPage(driver);
@@ -32,8 +32,8 @@ public class PIMsteps extends TestUtility {
     public void user_signed_into_the_application() {
     	
     	
-        loginPage.enterUsername(new ConfigReader().readConfig().getProperty("username"));
-        loginPage.enterPassword(new ConfigReader().readConfig().getProperty("password"));
+        loginPage.enterUsername(cr.readConfig().getProperty("username"));
+        loginPage.enterPassword(cr.readConfig().getProperty("password"));
         loginPage.clickLogin();
         System.out.println("User signed into the application.");
     }
@@ -60,6 +60,12 @@ public class PIMsteps extends TestUtility {
     public void i_enter_employee_last_name() {
         pimPage.enterlastname();
         System.out.println("Entered employee last name.");
+    }
+    @When("I upload employee Image")
+    public void i_upload_the_employee_image() throws Exception {
+    	Thread.sleep(5000);
+    	pimPage.uploadimage();
+    
     }
 
     @And("I see employee ID number")

@@ -18,3 +18,10 @@ Background:
     And I click on Shortlist button
     And I click on Save
     And I clcik on schedule interview button
+    And I enter interviewer name
+    And I enter Interview title 
+    And I enter Interview date 
+    And I enter Interview time
+    And I click on Submit button  
+    And I click on interview passed 
+   

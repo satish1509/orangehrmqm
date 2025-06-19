@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.qa.utils.ConfigReader;
 import com.qa.utils.TestUtility;
 
 public class PIMPage {
+    private ConfigReader cr=new ConfigReader();    
+
 
     WebDriver driver;
 
@@ -50,7 +53,7 @@ public class PIMPage {
     @FindBy(xpath = "//input[@name='lastName']/following::div/input")
     private WebElement employeeIdField;
 
-    @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
+    @FindBy(xpath = "//div[@class='oxd-file-div oxd-file-div--active']")
     private WebElement photographUploadInput;
 
     @FindBy(xpath = "//span[@class='oxd-switch-input oxd-switch-input--active --label-right']")
@@ -98,7 +101,6 @@ public class PIMPage {
 
     }
     public void search() {
-        TestUtility.clickElement(pimTab, "PIM tab");
         TestUtility.clickElement(employeeNameInput, "Employee Name input");
         TestUtility.enterText(employeeNameInput, TestUtility.generatedFirstName, "Employee Name input");
     }
@@ -110,7 +112,13 @@ public class PIMPage {
     public void enterlastname() {
         TestUtility.enterRandomLastname(lastNameField, "Last Name field");
     }
+    public void uploadimage() throws Exception {
+    	TestUtility.clickElement(photographUploadInput, "imageupload");
+        String imagePath = cr.readConfig().getProperty("ImagePath");
 
+    	
+    	TestUtility.fileupload(imagePath);
+    }
     public void loginid() {
         TestUtility.getText(employeeIdField, "Employee ID field");
     }

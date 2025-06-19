@@ -28,7 +28,6 @@ public class AddCandidateSteps {
 
     @Given("the application is opened in a web browser")
     public void launchApplication() {
-        driver.get(config.readConfig().getProperty("url"));
         System.out.println("Application is opened");
     }
 
@@ -47,12 +46,9 @@ public class AddCandidateSteps {
         add.navigateToRecruitmentPage();
     }
 
-  
-
     @Given("I am on the Recruitment menu")
     public void i_am_on_the_recruitment_menu() {
         System.out.println("Navigated to Recruitment module");
-
     }
 
     @And("I click on Add Candidate")
@@ -64,9 +60,10 @@ public class AddCandidateSteps {
     public void selectJobVacancy() {
         add.selectVacancyAutomationQA();
     }
+
     @When("I enter email id address")
     public void i_enter_email_id_address() {
-    	add.enterCandidateEmail();
+        add.enterCandidateEmail();
     }
 
     @And("I click on Shortlist button")
@@ -78,10 +75,10 @@ public class AddCandidateSteps {
     public void clickOnSaveButton() {
         add.clickSave();
     }
+
     @And("I clcik on schedule interview button")
     public void clickonscheduleinterviewbutton() throws InterruptedException {
-    	
-    	add.clickScheduleInterview();
+        add.clickScheduleInterview();
     }
 
     @And("I type name of candidate")
@@ -104,14 +101,43 @@ public class AddCandidateSteps {
 
     @And("I upload resume")
     public void uploadResume() throws Exception {
-        String filePath = config.readConfig().getProperty("StringfilePath");
+        String filePath = config.readConfig().getProperty("ResumefilePath");
         add.uploadResumeFile(filePath);
-      
     }
 
     @And("I click on Save")
     public void clickSaveCandidate() {
         add.clickSubmit();
+    }
+
+    @And("I enter interviewer name")
+    public void enterInterviewerName() {
+        add.enterInterviewerName();
+    }
+
+    @And("I enter Interview title")
+    public void enterInterviewTitle() {
+        add.enterInterviewTitle();
+    }
+
+    @And("I enter Interview date")
+    public void enterInterviewDate() {
+        add.enterInterviewDate();
+    }
+
+    @And("I enter Interview time")
+    public void enterInterviewTime() {
+        add.enterInterviewTime();
+    }
+
+    @And("I click on Submit button")
+    public void clickOnSubmitButton() {
+        add.clickSubmit();
+    }
+
+    @And("I click on interview passed")
+    public void clickOnInterviewPassed() {
+        add.clickInterviewPassed();
     }
 
     @Then("the candidate should be added successfully")

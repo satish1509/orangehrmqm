@@ -76,6 +76,20 @@ public class AddCandidatePage {
     private WebElement shortlistButton;
     @FindBy(xpath = "//*[text()=' Schedule Interview ']")
     private WebElement scheduleInterviewBtn;
+    @FindBy(xpath = "//label[text()='Interview Title']/following::input[@class='oxd-input oxd-input--active' and not(preceding::input[@class='oxd-input oxd-input--active'][preceding::label[text()='Interview Title']])]")
+    private WebElement interviewtitle;
+    @FindBy(xpath = "//input[@placeholder='Type for hints...']")
+    private WebElement interviewerName;
+    @FindBy(xpath = "//span[text()='Quentin  McKenzie']")
+    private WebElement selectname;
+    @FindBy(xpath = "//input[@placeholder='hh:mm']")
+    private WebElement interviewTimeInput;
+    @FindBy(xpath = "//input[@name='am']")
+    private WebElement amOption;
+    @FindBy(xpath = "//*[text()=' Mark Interview Passed ']")
+    private WebElement markInterviewPassedButton;
+
+
 
     // ========== Action Methods ==========
 
@@ -151,6 +165,30 @@ public class AddCandidatePage {
     public void clickScheduleInterview() throws InterruptedException {
     	Thread.sleep(3000);
     	TestUtility.clickElement(scheduleInterviewBtn, "schedule Button");
+    }
+    public void enterInterviewTitle() {
+        interviewtitle.clear();       // Clear existing text if any
+        interviewtitle.sendKeys("QA Engineer"); // Enter the given title
+    }
+    public void enterInterviewerName() {
+        interviewerName.clear();
+        interviewerName.sendKeys("qu");
+    	TestUtility.clickElement(selectname, "Interviewername Selected");
+
+    }
+    public void enterInterviewDate() {
+        dateField.clear();
+        TestUtility.clickElement(dateField, "interview date");
+        TestUtility.enterText(dateField, "06-17-2025", "Interview Date");
+    }
+    public void enterInterviewTime() {
+        interviewTimeInput.clear();
+        interviewTimeInput.click();
+        TestUtility.enterText(interviewTimeInput, "10:00", "Interview Time");
+        TestUtility.clickElement(amOption,"selected AM time");
+    }
+    public void clickInterviewPassed() {
+        TestUtility.clickElement(markInterviewPassedButton, "Mark Interview Passed Button");
     }
 
     public void verifyCandidateSubmissionSuccess() {
